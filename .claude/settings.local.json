@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:test.raulvillacis.com)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(mkdir -p /Users/dimamoiseenko/Desktop/copy/images)",
+      "Bash(curl -O https://test.raulvillacis.com/wp-content/uploads/2026/04/img-7.png -O https://test.raulvillacis.com/wp-content/uploads/2026/04/img-8.png -O https://test.raulvillacis.com/wp-content/uploads/2026/04/img-9.png -O https://test.raulvillacis.com/wp-content/uploads/2026/04/img-10.png -O https://test.raulvillacis.com/wp-content/uploads/2026/04/img-11.png -O https://test.raulvillacis.com/wp-content/uploads/2026/04/img-12.png -O https://test.raulvillacis.com/wp-content/uploads/2026/04/img-13.png -O https://test.raulvillacis.com/wp-content/uploads/2026/04/68f07d8deaeb16252857a4c1_OPWA-BG.webp)",
+      "Bash(gh auth *)",
+      "Bash(curl -L \"https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=900&auto=format&fit=crop&q=80\" -o img-7.jpg)",
+      "Bash(curl -L \"https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=900&auto=format&fit=crop&q=80\" -o img-8.jpg)",
+      "Bash(curl -L \"https://images.unsplash.com/photo-1551076805-e1869033e561?w=900&auto=format&fit=crop&q=80\" -o img-9.jpg)",
+      "Bash(curl -L \"https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=900&auto=format&fit=crop&q=80\" -o img-10.jpg)",
+      "Bash(curl -L \"https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=900&auto=format&fit=crop&q=80\" -o img-11.jpg)"
+    ]
+  }
+}
