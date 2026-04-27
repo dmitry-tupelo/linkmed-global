@@ -7,7 +7,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="theme-1.css" id="theme-stylesheet" />
+  <link rel="stylesheet" href="theme-2.css" id="theme-stylesheet-light" media="none" />
+  <style>
+    #theme-stylesheet[media="none"] { display: none; }
+    #theme-stylesheet-light[media="none"] { display: none; }
+  </style>
 </head>
 <body>
 
@@ -42,6 +47,7 @@
       <a href="#events">Events</a>
       <a href="#membership">Membership</a>
       <a href="#contact" class="btn-nav-contact">Contact us</a>
+      <button class="theme-toggle" id="theme-toggle" title="Toggle theme" aria-label="Toggle dark/light theme">🌙</button>
     </nav>
   </div>
 </header>
@@ -391,6 +397,43 @@
     <span>© 2026 LinkMed Global. All rights reserved.</span>
   </div>
 </footer>
+
+<script>
+  // Theme switcher
+  const themeToggle = document.getElementById('theme-toggle');
+  const darkStylesheet = document.getElementById('theme-stylesheet');
+  const lightStylesheet = document.getElementById('theme-stylesheet-light');
+
+  // Get saved theme or default to dark
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+
+  function setTheme(theme) {
+    if (theme === 'light') {
+      darkStylesheet.media = 'none';
+      lightStylesheet.media = 'all';
+      themeToggle.textContent = '🌙';
+      themeToggle.title = 'Switch to dark theme';
+      document.documentElement.style.colorScheme = 'light';
+    } else {
+      darkStylesheet.media = 'all';
+      lightStylesheet.media = 'none';
+      themeToggle.textContent = '☀️';
+      themeToggle.title = 'Switch to light theme';
+      document.documentElement.style.colorScheme = 'dark';
+    }
+    localStorage.setItem('theme', theme);
+  }
+
+  // Initialize theme
+  setTheme(savedTheme);
+
+  // Toggle on click
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+  });
+</script>
 
 </body>
 </html>
