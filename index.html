@@ -40,15 +40,17 @@
         <div class="logo-sub">Institute for Emerging Therapies</div>
       </div>
     </a>
-    <nav>
-      <a href="#" class="active">Home</a>
-      <a href="#about">About us</a>
-      <a href="#courses">Course</a>
-      <a href="#events">Events</a>
-      <a href="#membership">Membership</a>
-      <a href="#contact" class="btn-nav-contact">Contact us</a>
-      <button class="theme-toggle" id="theme-toggle" title="Toggle theme" aria-label="Toggle dark/light theme">🌙</button>
+    <nav id="main-nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About us</a>
+      <a href="courses.html">Course</a>
+      <a href="events.html">Events</a>
+      <a href="membership.html">Membership</a>
+      <a href="contact.html" class="btn-nav-contact">Contact us</a>
     </nav>
+    <button class="burger" id="burger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
@@ -398,7 +400,24 @@
   </div>
 </footer>
 
+<!-- ═══ THEME TOGGLE ═════════════════════════ -->
+<button class="theme-toggle-fixed" id="theme-toggle" title="Toggle theme" aria-label="Toggle dark/light theme"></button>
+
 <script>
+  // Burger menu
+  const burger = document.getElementById('burger');
+  const mainNav = document.getElementById('main-nav');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mainNav.classList.toggle('open');
+  });
+  mainNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      burger.classList.remove('open');
+      mainNav.classList.remove('open');
+    });
+  });
+
   // Theme switcher
   const themeToggle = document.getElementById('theme-toggle');
   const darkStylesheet = document.getElementById('theme-stylesheet');
@@ -411,13 +430,13 @@
     if (theme === 'light') {
       darkStylesheet.media = 'none';
       lightStylesheet.media = 'all';
-      themeToggle.textContent = '🌙';
+      themeToggle.textContent = 'theme 1';
       themeToggle.title = 'Switch to dark theme';
       document.documentElement.style.colorScheme = 'light';
     } else {
       darkStylesheet.media = 'all';
       lightStylesheet.media = 'none';
-      themeToggle.textContent = '☀️';
+      themeToggle.textContent = 'theme 2';
       themeToggle.title = 'Switch to light theme';
       document.documentElement.style.colorScheme = 'dark';
     }
