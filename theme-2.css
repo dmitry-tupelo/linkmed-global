@@ -391,12 +391,93 @@ footer { background: #080f1e; color: rgba(255,255,255,.6); padding: 64px 32px 32
   box-shadow: 0 6px 16px rgba(96,165,250,.12);
 }
 
+/* ─── PAGE HERO ──────────────────────────── */
+.page-hero {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #dbeafe 100%);
+  padding: 72px 32px 80px; text-align: center; position: relative; overflow: hidden;
+}
+.page-hero-inner { max-width: 720px; margin: 0 auto; position: relative; }
+.page-hero h1 { font-size: clamp(28px, 4vw, 48px); font-weight: 800; color: #000; line-height: 1.15; margin: 12px 0 16px; letter-spacing: -.3px; }
+.page-hero h1 span { color: var(--teal); }
+.page-hero p { font-size: 16px; color: var(--gray-500); line-height: 1.75; max-width: 540px; margin: 0 auto; }
+
+/* ─── TEAM ───────────────────────────────── */
+.team-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; margin-top: 8px; }
+.team-card { background: white; border: 1px solid var(--gray-100); border-radius: var(--radius); padding: 24px 20px; text-align: center; box-shadow: var(--shadow); transition: transform .2s, box-shadow .2s; }
+.team-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.team-avatar { width: 52px; height: 52px; border-radius: 50%; background: var(--teal); color: white; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+.team-name { font-size: 15px; font-weight: 700; color: #000; margin-bottom: 3px; }
+.team-role { font-size: 11px; font-weight: 600; color: var(--teal); text-transform: uppercase; letter-spacing: .8px; margin-bottom: 10px; }
+.team-bio { font-size: 13px; color: var(--gray-500); line-height: 1.6; }
+
+/* ─── PRICING ────────────────────────────── */
+.pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 8px; }
+.pricing-card { background: white; border: 1px solid var(--gray-100); border-radius: 12px; padding: 28px 24px; display: flex; flex-direction: column; gap: 6px; position: relative; box-shadow: var(--shadow); }
+.pricing-card--featured { border-color: var(--teal); box-shadow: 0 0 0 1px var(--teal), var(--shadow-md); }
+.pricing-badge { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--teal); color: white; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; }
+.pricing-name { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--gray-500); }
+.pricing-price { font-size: 38px; font-weight: 800; color: #000; line-height: 1; margin: 4px 0 6px; }
+.pricing-price span { font-size: 15px; font-weight: 500; color: var(--gray-500); }
+.pricing-desc { font-size: 13px; color: var(--gray-500); line-height: 1.6; margin-bottom: 8px; }
+.pricing-list { list-style: none; display: flex; flex-direction: column; gap: 8px; flex: 1; margin-bottom: 20px; }
+.pricing-list li { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--gray-700); }
+.pricing-list li svg { width: 14px; min-width: 14px; height: 14px; margin-top: 2px; stroke: var(--teal); }
+
+/* ─── TESTIMONIALS ───────────────────────── */
+.testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 8px; }
+.testimonial-card { background: var(--off-white); border: 1px solid var(--gray-100); border-radius: var(--radius); padding: 24px; }
+.testimonial-text { font-size: 14px; color: var(--gray-700); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+.testimonial-author { display: flex; align-items: center; gap: 12px; }
+.testimonial-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--teal); color: white; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.testimonial-name { font-size: 13px; font-weight: 700; color: #000; }
+.testimonial-role { font-size: 12px; color: var(--gray-500); }
+
+/* ─── CONTACT ────────────────────────────── */
+.contact-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 48px; align-items: start; }
+.contact-form-wrap { background: white; border: 1px solid var(--gray-100); border-radius: 12px; padding: 36px; box-shadow: var(--shadow); }
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 12px; font-weight: 600; color: var(--gray-700); text-transform: uppercase; letter-spacing: .5px; }
+.form-group input, .form-group select, .form-group textarea {
+  padding: 10px 14px; border-radius: 8px; border: 1px solid var(--gray-300);
+  font-family: var(--font); font-size: 14px; color: var(--navy);
+  background: var(--gray-50); transition: border-color .2s, box-shadow .2s; outline: none;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: var(--teal); box-shadow: 0 0 0 3px rgba(96,165,250,.12);
+}
+.form-group textarea { resize: vertical; }
+.contact-info { display: flex; flex-direction: column; gap: 4px; }
+.contact-info-block { display: flex; align-items: flex-start; gap: 14px; padding: 16px; border-radius: 10px; background: var(--off-white); border: 1px solid var(--gray-100); }
+.contact-info-icon { width: 36px; height: 36px; min-width: 36px; border-radius: 8px; background: rgba(96,165,250,.12); display: flex; align-items: center; justify-content: center; }
+.contact-info-icon svg { width: 16px; height: 16px; stroke: var(--teal); }
+.contact-info-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; color: var(--gray-500); margin-bottom: 2px; }
+.contact-info-value { font-size: 14px; font-weight: 600; color: var(--navy); }
+.contact-social { padding: 16px; }
+
+/* ─── FAQ ────────────────────────────────── */
+.faq-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-top: 8px; }
+.faq-item { background: white; border: 1px solid var(--gray-100); border-radius: var(--radius); padding: 20px 22px; box-shadow: var(--shadow); }
+.faq-q { font-size: 14px; font-weight: 700; color: #000; margin-bottom: 8px; }
+.faq-a { font-size: 13px; color: var(--gray-500); line-height: 1.65; }
+
+/* ─── FILTER BAR ─────────────────────────── */
+.filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+.filter-btn { padding: 7px 16px; border-radius: 20px; border: 1px solid var(--gray-300); background: white; font-family: var(--font); font-size: 13px; font-weight: 500; color: var(--gray-700); cursor: pointer; transition: all .2s; }
+.filter-btn.active, .filter-btn:hover { background: var(--teal); color: white; border-color: var(--teal); }
+
 /* ─── RESPONSIVE ─────────────────────────── */
 @media (max-width: 1024px) {
   .about-inner, .membership-inner { grid-template-columns: 1fr; }
   .about-img, .membership-img { display: none; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .team-grid { grid-template-columns: repeat(2,1fr); }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .contact-inner { grid-template-columns: 1fr; }
+  .faq-grid { grid-template-columns: 1fr; }
 }
 /* ─── BURGER ──────────────────────────────── */
 .burger {
@@ -414,6 +495,8 @@ footer { background: #080f1e; color: rgba(255,255,255,.6); padding: 64px 32px 32
 .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 @media (max-width: 768px) {
+  .team-grid { grid-template-columns: 1fr 1fr; }
+  .form-row { grid-template-columns: 1fr; }
   .burger { display: flex; }
   nav {
     display: flex; flex-direction: column; gap: 4px;
