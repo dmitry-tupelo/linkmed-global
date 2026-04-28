@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="theme-1.css" id="theme-stylesheet" />
   <link rel="stylesheet" href="theme-2.css" id="theme-stylesheet-light" media="none" />
+  <link rel="stylesheet" href="theme-3.css" id="theme-stylesheet-gold" media="none" />
 </head>
 <body>
 
@@ -34,8 +35,10 @@
     <nav id="main-nav">
       <a href="index.html">Home</a>
       <a href="about.html" class="active">About us</a>
-      <a href="courses.html">Course</a>
+      <a href="courses.html">Courses</a>
       <a href="events.html">Events</a>
+      <a href="news.html">News</a>
+      <a href="blog.html">Blog</a>
       <a href="membership.html">Membership</a>
       <a href="contact.html">Contact us</a>
       <a href="https://www.linkmedglobal.com/products/courses/dualpepcert" class="btn-nav-contact" target="_blank">Enroll Now</a>
@@ -107,41 +110,6 @@
   </div>
 </section>
 
-<!-- TEAM -->
-<section class="section">
-  <div class="section-inner">
-    <div class="section-label">Leadership</div>
-    <h2 class="section-title">Meet Our Team</h2>
-    <p class="section-sub">A diverse group of clinicians, educators, and innovators united by a shared vision for the future of medicine.</p>
-    <div class="team-grid">
-      <div class="team-card">
-        <div class="team-avatar">RV</div>
-        <div class="team-name">Dr. Raul Villacis</div>
-        <div class="team-role">Founder & Medical Director</div>
-        <p class="team-bio">Board-certified physician and pioneer in peptide-based therapies with over 15 years of clinical and research experience.</p>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">SC</div>
-        <div class="team-name">Dr. Sarah Chen</div>
-        <div class="team-role">Head of Curriculum</div>
-        <p class="team-bio">Former academic physician specialising in regenerative medicine and evidence-based education program design.</p>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">MR</div>
-        <div class="team-name">Dr. Marco Reyes</div>
-        <div class="team-role">Chief Science Officer</div>
-        <p class="team-bio">Biochemist and clinician researcher focused on translating emerging science into practical clinical protocols.</p>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">AL</div>
-        <div class="team-name">Dr. Amara Linton</div>
-        <div class="team-role">Director of Community</div>
-        <p class="team-bio">Passionate advocate for global healthcare equity, building practitioner networks across emerging markets.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- STATS -->
 <section class="stats">
   <div class="stats-inner">
@@ -193,16 +161,24 @@
   mainNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { burger.classList.remove('open'); mainNav.classList.remove('open'); }));
 
   const themeToggle = document.getElementById('theme-toggle');
-  const darkStylesheet = document.getElementById('theme-stylesheet');
-  const lightStylesheet = document.getElementById('theme-stylesheet-light');
-  const savedTheme = localStorage.getItem('theme') || 'dark';
+  const sheet1 = document.getElementById('theme-stylesheet');
+  const sheet2 = document.getElementById('theme-stylesheet-light');
+  const sheet3 = document.getElementById('theme-stylesheet-gold');
+  const themes = ['dark', 'light', 'gold'];
   function setTheme(theme) {
-    if (theme === 'light') { darkStylesheet.media = 'none'; lightStylesheet.media = 'all'; themeToggle.textContent = 'theme 1'; document.documentElement.style.colorScheme = 'light'; }
-    else { darkStylesheet.media = 'all'; lightStylesheet.media = 'none'; themeToggle.textContent = 'theme 2'; document.documentElement.style.colorScheme = 'dark'; }
+    sheet1.media = theme === 'dark' ? 'all' : 'none';
+    sheet2.media = theme === 'light' ? 'all' : 'none';
+    sheet3.media = theme === 'gold' ? 'all' : 'none';
+    themeToggle.textContent = { dark: 'theme 1', light: 'theme 2', gold: 'theme 3' }[theme];
+    document.documentElement.style.colorScheme = theme === 'dark' ? 'dark' : 'light';
     localStorage.setItem('theme', theme);
   }
-  setTheme(savedTheme);
-  themeToggle.addEventListener('click', () => { const t = localStorage.getItem('theme') || 'dark'; setTheme(t === 'dark' ? 'light' : 'dark'); });
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  setTheme(themes.includes(savedTheme) ? savedTheme : 'dark');
+  themeToggle.addEventListener('click', () => {
+    const cur = localStorage.getItem('theme') || 'dark';
+    setTheme(themes[(themes.indexOf(cur) + 1) % themes.length]);
+  });
 </script>
 </body>
 </html>

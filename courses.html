@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="theme-1.css" id="theme-stylesheet" />
   <link rel="stylesheet" href="theme-2.css" id="theme-stylesheet-light" media="none" />
+  <link rel="stylesheet" href="theme-3.css" id="theme-stylesheet-gold" media="none" />
 </head>
 <body>
 
@@ -34,8 +35,10 @@
     <nav id="main-nav">
       <a href="index.html">Home</a>
       <a href="about.html">About us</a>
-      <a href="courses.html" class="active">Course</a>
+      <a href="courses.html" class="active">Courses</a>
       <a href="events.html">Events</a>
+      <a href="news.html">News</a>
+      <a href="blog.html">Blog</a>
       <a href="membership.html">Membership</a>
       <a href="contact.html">Contact us</a>
       <a href="https://www.linkmedglobal.com/products/courses/dualpepcert" class="btn-nav-contact" target="_blank">Enroll Now</a>
@@ -84,8 +87,23 @@
           <div class="course-title">Peptides — Their Use and Misuse</div>
           <p class="course-desc">In-depth exploration of peptide pharmacology, evidence-based applications, regulatory considerations, and common pitfalls in clinical practice.</p>
           <div class="course-footer">
-            <span class="course-meta">Online · 6 Modules</span>
-            <a href="#" class="btn-sm">Learn More</a>
+            <span class="course-meta">Online · 2 Modules</span>
+            <span class="course-coming-soon">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card" style="flex-direction:column;">
+        <div class="course-img" style="width:100%;height:180px;min-width:unset;">
+          <img src="images/img-11.png" alt="Certificate in Advanced Peptide Therapy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+        </div>
+        <div class="course-body" style="border-left:none;border-top:3px solid transparent;transition:border-color .2s;">
+          <div class="course-level">Certificate Program · CME Credits</div>
+          <div class="course-title">Certificate in Advanced Peptide Therapy</div>
+          <p class="course-desc">Advanced clinical certification covering cutting-edge peptide protocols, complex case management, and integrative strategies for optimising patient outcomes.</p>
+          <div class="course-footer">
+            <span class="course-meta">Self-paced · 12 Modules</span>
+            <span class="course-coming-soon">Coming Soon</span>
           </div>
         </div>
       </div>
@@ -132,16 +150,24 @@
   mainNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { burger.classList.remove('open'); mainNav.classList.remove('open'); }));
 
   const themeToggle = document.getElementById('theme-toggle');
-  const darkStylesheet = document.getElementById('theme-stylesheet');
-  const lightStylesheet = document.getElementById('theme-stylesheet-light');
-  const savedTheme = localStorage.getItem('theme') || 'dark';
+  const sheet1 = document.getElementById('theme-stylesheet');
+  const sheet2 = document.getElementById('theme-stylesheet-light');
+  const sheet3 = document.getElementById('theme-stylesheet-gold');
+  const themes = ['dark', 'light', 'gold'];
   function setTheme(theme) {
-    if (theme === 'light') { darkStylesheet.media = 'none'; lightStylesheet.media = 'all'; themeToggle.textContent = 'theme 1'; document.documentElement.style.colorScheme = 'light'; }
-    else { darkStylesheet.media = 'all'; lightStylesheet.media = 'none'; themeToggle.textContent = 'theme 2'; document.documentElement.style.colorScheme = 'dark'; }
+    sheet1.media = theme === 'dark' ? 'all' : 'none';
+    sheet2.media = theme === 'light' ? 'all' : 'none';
+    sheet3.media = theme === 'gold' ? 'all' : 'none';
+    themeToggle.textContent = { dark: 'theme 1', light: 'theme 2', gold: 'theme 3' }[theme];
+    document.documentElement.style.colorScheme = theme === 'dark' ? 'dark' : 'light';
     localStorage.setItem('theme', theme);
   }
-  setTheme(savedTheme);
-  themeToggle.addEventListener('click', () => { const t = localStorage.getItem('theme') || 'dark'; setTheme(t === 'dark' ? 'light' : 'dark'); });
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  setTheme(themes.includes(savedTheme) ? savedTheme : 'dark');
+  themeToggle.addEventListener('click', () => {
+    const cur = localStorage.getItem('theme') || 'dark';
+    setTheme(themes[(themes.indexOf(cur) + 1) % themes.length]);
+  });
 </script>
 </body>
 </html>

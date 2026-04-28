@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="theme-1.css" id="theme-stylesheet" />
   <link rel="stylesheet" href="theme-2.css" id="theme-stylesheet-light" media="none" />
+  <link rel="stylesheet" href="theme-3.css" id="theme-stylesheet-gold" media="none" />
 </head>
 <body>
 
@@ -34,8 +35,10 @@
     <nav id="main-nav">
       <a href="index.html">Home</a>
       <a href="about.html">About us</a>
-      <a href="courses.html">Course</a>
+      <a href="courses.html">Courses</a>
       <a href="events.html">Events</a>
+      <a href="news.html">News</a>
+      <a href="blog.html">Blog</a>
       <a href="membership.html">Membership</a>
       <a href="contact.html" class="active">Contact us</a>
       <a href="https://www.linkmedglobal.com/products/courses/dualpepcert" class="btn-nav-contact" target="_blank">Enroll Now</a>
@@ -215,16 +218,24 @@
   mainNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { burger.classList.remove('open'); mainNav.classList.remove('open'); }));
 
   const themeToggle = document.getElementById('theme-toggle');
-  const darkStylesheet = document.getElementById('theme-stylesheet');
-  const lightStylesheet = document.getElementById('theme-stylesheet-light');
-  const savedTheme = localStorage.getItem('theme') || 'dark';
+  const sheet1 = document.getElementById('theme-stylesheet');
+  const sheet2 = document.getElementById('theme-stylesheet-light');
+  const sheet3 = document.getElementById('theme-stylesheet-gold');
+  const themes = ['dark', 'light', 'gold'];
   function setTheme(theme) {
-    if (theme === 'light') { darkStylesheet.media = 'none'; lightStylesheet.media = 'all'; themeToggle.textContent = 'theme 1'; document.documentElement.style.colorScheme = 'light'; }
-    else { darkStylesheet.media = 'all'; lightStylesheet.media = 'none'; themeToggle.textContent = 'theme 2'; document.documentElement.style.colorScheme = 'dark'; }
+    sheet1.media = theme === 'dark' ? 'all' : 'none';
+    sheet2.media = theme === 'light' ? 'all' : 'none';
+    sheet3.media = theme === 'gold' ? 'all' : 'none';
+    themeToggle.textContent = { dark: 'theme 1', light: 'theme 2', gold: 'theme 3' }[theme];
+    document.documentElement.style.colorScheme = theme === 'dark' ? 'dark' : 'light';
     localStorage.setItem('theme', theme);
   }
-  setTheme(savedTheme);
-  themeToggle.addEventListener('click', () => { const t = localStorage.getItem('theme') || 'dark'; setTheme(t === 'dark' ? 'light' : 'dark'); });
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  setTheme(themes.includes(savedTheme) ? savedTheme : 'dark');
+  themeToggle.addEventListener('click', () => {
+    const cur = localStorage.getItem('theme') || 'dark';
+    setTheme(themes[(themes.indexOf(cur) + 1) % themes.length]);
+  });
 </script>
 </body>
 </html>

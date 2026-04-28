@@ -262,6 +262,11 @@ nav a.active { color: var(--navy); font-weight: 600; }
   transition: background .2s;
 }
 .btn-sm:hover { background: var(--teal); }
+.course-coming-soon {
+  font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  color: var(--gray-500); border: 1.5px solid var(--gray-500);
+  padding: 5px 12px; border-radius: 20px; opacity: .7;
+}
 .courses-more { text-align: center; margin-top: 40px; }
 
 /* ─── EVENTS ──────────────────────────────── */
@@ -493,6 +498,72 @@ footer { background: #080f1e; color: rgba(255,255,255,.6); padding: 64px 32px 32
 .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .burger.open span:nth-child(2) { opacity: 0; }
 .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ─── NEWS ───────────────────────────────── */
+.news-filters {
+  display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px;
+}
+.news-filter {
+  background: var(--gray-50); border: 1.5px solid var(--gray-100);
+  color: var(--gray-700); font-size: 13px; font-weight: 600;
+  padding: 7px 18px; border-radius: 20px; cursor: pointer;
+  font-family: var(--font); transition: all .2s;
+}
+.news-filter:hover { border-color: var(--teal); color: var(--teal); }
+.news-filter.active { background: var(--teal); border-color: var(--teal); color: white; }
+.news-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px;
+}
+.news-card {
+  background: var(--off-white); border: 1px solid var(--gray-100);
+  border-radius: 14px; padding: 24px;
+  display: flex; flex-direction: column; gap: 12px;
+  transition: box-shadow .2s, transform .2s;
+}
+.news-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.news-card-meta { display: flex; align-items: center; justify-content: space-between; }
+.news-source {
+  font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+  color: var(--teal);
+}
+.news-date { font-size: 12px; color: var(--gray-500); }
+.news-title { font-size: 16px; font-weight: 700; line-height: 1.4; flex: 1; }
+.news-title a { color: var(--navy); transition: color .2s; }
+.news-title a:hover { color: var(--teal); }
+.news-excerpt { font-size: 13px; color: var(--gray-500); line-height: 1.65; }
+.news-card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 4px; }
+.news-tag {
+  font-size: 11px; font-weight: 600; color: var(--gray-500);
+  background: var(--gray-100); padding: 4px 10px; border-radius: 12px;
+}
+.news-read-more { font-size: 13px; font-weight: 600; color: var(--teal); transition: opacity .2s; }
+.news-read-more:hover { opacity: .75; }
+
+/* ─── BLOG ───────────────────────────────── */
+.blog-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 28px;
+}
+.blog-card {
+  background: var(--off-white); border: 1px solid var(--gray-100);
+  border-radius: 16px; overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: box-shadow .2s, transform .2s;
+}
+.blog-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.blog-card-img { position: relative; height: 200px; overflow: hidden; }
+.blog-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+.blog-card:hover .blog-card-img img { transform: scale(1.04); }
+.blog-category {
+  position: absolute; top: 14px; left: 14px;
+  font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+  background: var(--teal); color: white;
+  padding: 5px 12px; border-radius: 20px;
+}
+.blog-card-body { padding: 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.blog-meta { display: flex; gap: 12px; font-size: 12px; color: var(--gray-500); }
+.blog-author { font-weight: 600; }
+.blog-title { font-size: 17px; font-weight: 700; line-height: 1.35; color: var(--navy); }
+.blog-excerpt { font-size: 13px; color: var(--gray-500); line-height: 1.65; flex: 1; }
 
 @media (max-width: 768px) {
   .team-grid { grid-template-columns: 1fr 1fr; }
