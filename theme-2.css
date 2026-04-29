@@ -588,7 +588,7 @@ footer { background: #080f1e; color: rgba(255,255,255,.6); padding: 64px 32px 32
 .blog-title { font-size: 17px; font-weight: 700; line-height: 1.35; color: var(--navy); }
 .blog-excerpt { font-size: 13px; color: var(--gray-500); line-height: 1.65; flex: 1; }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .team-grid { grid-template-columns: 1fr 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .burger { display: flex; }
