@@ -38,23 +38,14 @@ header {
   padding: 0 32px; height: 76px;
 }
 
-/* Logo */
+/* Logo — replaced with PNG for gold theme */
 .logo { display: flex; align-items: center; gap: 10px; }
 .logo-icon {
-  width: 52px; height: 52px;
-  display: flex; align-items: center; justify-content: center;
+  width: 210px; height: 42px;
+  background: url('images/logo-gold.png') no-repeat left center / contain;
 }
-.logo-icon svg { width: 52px; height: 52px; }
-.logo-text-wrap { display: flex; flex-direction: column; line-height: 1; }
-.logo-name {
-  font-size: 17px; font-weight: 800; letter-spacing: 1.5px;
-  text-transform: uppercase; color: var(--teal);
-}
-.logo-name span { color: #000; }
-.logo-sub {
-  font-size: 8px; letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--navy); opacity: .5; margin-top: 3px;
-}
+.logo-icon svg { display: none; }
+.logo-text-wrap { display: none; }
 
 /* Nav */
 nav { display: flex; align-items: center; gap: 4px; }
