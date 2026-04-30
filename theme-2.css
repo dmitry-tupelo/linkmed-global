@@ -312,6 +312,12 @@ nav a.active { color: var(--navy); font-weight: 600; }
 .event-meta  { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 28px; }
 .event-meta-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--gray-500); }
 .event-meta-item svg { width: 14px; height: 14px; stroke: var(--teal); flex-shrink: 0; }
+.event-topics { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.event-topic-pill {
+  font-size: 11px; font-weight: 600; letter-spacing: .5px;
+  padding: 4px 12px; border-radius: 20px;
+  background: rgba(13,148,136,.1); color: var(--teal); border: 1px solid rgba(13,148,136,.25);
+}
 
 /* ─── MEMBERSHIP ─────────────────────────── */
 .membership-section { background: var(--off-white); }
