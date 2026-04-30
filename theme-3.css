@@ -88,7 +88,7 @@ nav a.active { color: var(--navy); font-weight: 600; }
 .hs-content {
   position: absolute; inset: 0; z-index: 10;
   display: flex; flex-direction: column; justify-content: center;
-  max-width: 720px; padding: 0 64px; text-align: left;
+  max-width: 960px; padding: 0 64px; text-align: left;
 }
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
@@ -103,7 +103,7 @@ nav a.active { color: var(--navy); font-weight: 600; }
 .hs-content h1 span { color: var(--teal); }
 .hs-content p {
   font-size: 17px; color: rgba(255,255,255,.7);
-  line-height: 1.75; max-width: 540px; margin-bottom: 40px;
+  line-height: 1.75; max-width: 740px; margin-bottom: 40px;
 }
 .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
 .hs-arrow {
