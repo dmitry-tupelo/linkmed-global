@@ -48,7 +48,7 @@ header {
 .logo-text-wrap { display: none; }
 
 /* Nav */
-nav { display: flex; align-items: center; gap: 4px; }
+/* nav { display: flex; align-items: center; gap: 4px; } */
 nav a {
   font-size: 14px; font-weight: 500; color: var(--gray-700);
   padding: 8px 16px; border-radius: 8px;
